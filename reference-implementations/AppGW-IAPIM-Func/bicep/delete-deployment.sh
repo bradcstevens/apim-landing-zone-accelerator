@@ -1,8 +1,8 @@
-$LOCATION = "westeurope"
-$BICEP_FILE="main.bicep"
+LOCATION="westus2"
+BICEP_FILE="main.bicep"
 
 # delete a deployment
-az deployment sub  delete  --name testasedeployment
+az deployment sub delete --name main
 
 # deploy the bicep file directly
 

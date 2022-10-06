@@ -9,7 +9,7 @@ param subnetId string
 param osDiskType string = 'Standard_LRS'
 
 @description('Valid SKU indicator for the VM')
-param vmSize string = 'Standard_D4_v3'
+param vmSize string = 'Standard_D2as_v4'
 
 @description('The user name to be used as the Administrator for all VMs created by this deployment')
 param username string
@@ -24,14 +24,14 @@ param windowsOSVersion string = '2016-Datacenter'
 param vmName string
 
 @description('Indicator to guide whether the CI/CD agent script should be run or not')
-param deployAgent bool=false
+param deployAgent bool = false
 
 @description('The Azure DevOps or GitHub account name')
-param accountName string=''
+param accountName string = ''
 
 @description('The personal access token to connect to Azure DevOps or Github')
 @secure()
-param personalAccessToken string=''
+param personalAccessToken string = ''
 
 @description('The name Azure DevOps or GitHub pool for this build agent to join. Use \'Default\' if you don\'t have a separate pool.')
 param poolName string = 'Default'
@@ -113,7 +113,7 @@ resource vm_CustomScript 'Microsoft.Compute/virtualMachines/extensions@2021-04-0
     settings: {
       fileUris: [
         artifactsLocation
-      ]   
+      ]
     }
     protectedSettings: {
       commandToExecute: 'powershell.exe -ExecutionPolicy Unrestricted -Command ./agentsetup.ps1 -url ${accountName} -pat ${personalAccessToken} -agent ${AgentName} -pool ${poolName} -agenttype ${CICDAgentType} '
