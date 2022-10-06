@@ -8,6 +8,10 @@ deployment/bicep/localtestscript.ps1
 # Azure Functions localsettings file
 local.settings.json
 
+setup.sh
+.pat
+.spn
+
 # User-specific files
 *.suo
 *.user
